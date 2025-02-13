@@ -9,68 +9,169 @@
 
         /*
             flexbox : 
-                - 
-                - 
-                - 
-                - 
-                - 
-                - 
-                - 
+                - 요소의 사이즈가 불명확 하거나 반응형 웹을 구축할 때 유연한 레이아웃을 구현할 수 있게 함
+                - 복잡한 레이아웃을 손쉽게 표현 가능
+                - 1차원 레이아웃에 적합함
+
+                - 장점:
+                - 1줄의 코드로
+                - 요소간 상하좌우 정렬, 순서 변경에 용이
+                - 요소간 간격 조절이 편리
         */
 
         /*
-            flexbox container : 
-                - 
-                - 
+            flexbox container : flex item을 자식으로 가지는 부모 요소,
+            display 속성 값을 flax혹은 inline-flex로 지정하여 사용 가능
+                - flex: flex container를 block 요소로 지정
+                - inline-flex: flex container를 inline요소로 지정
         */
-        
+        .flex-container{
+            background-color: rgba(0, 0, 0, 0.4);
+            display: flex;
+        }
 
-
+        .inline-flex-container{
+            background-color: rgba(0, 0, 0, 0.4);
+            display: inline-flex;
+        }
 
         /*
             flexbox container 속성
         */
 
         /*
-            flex-direction 속성 : 
-                - 
-                - 
-                - 
-                - 
+            flex-direction 속성 : flex container의 주축 방향을 지정
+                - row: 좌에서 우로 배치(기본값)
+                - row-reverse: 우에서 좌로 배치
+                - column: 위에서 아래로 배치
+                - column-reverse: 아래에서 위로 배치
         */
-        
-
+        .flex-item-sample{
+            width: 200px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid black;
+        }
+        .flex-row-container{
+            background-color: rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: row;
+        }
+        .flex-row-reverse-container{
+            background-color: rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: row-reverse;
+        }
+        .flex-column-container{
+            background-color: rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+        .flex-column-reverse-container{
+            background-color: rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column-reverse;
+        }
 
         /*
-            flex-wrap 속성 : 
-                - 
-
-                - 
-                - 
-                - 
+            flex-wrap 속성 : flex container의 범위를 초과하는 flex item을 하나의 행에
+            표현할 지 여러 행에 표현할지 지정
+                - nowrap: flex item을 한 행에 표현(default)
+                - wrap: flex item이 범위를 초과하면 아래행에 출력
+                - wrap-reverse: flex item이 범위를 초과하면 윗 행에 출력
         */
+        .flex-nowrap-container{
+            display: flex;
+            background-color: gray;
+            flex-wrap:nowrap;
+        }
 
+        .flex-wrap-container {
+            display: flex;
+            background-color: rgba(0, 0, 0, 0.2);
+            flex-wrap: wrap;
+        }
+
+        .flex-wrap-reverse-container {
+            display: flex;
+            background-color: rgba(0, 0, 0, 0.2);
+            flex-wrap: wrap-reverse;
+        }
 
         /*
-            justify-content 속성 : 
-                - 
-                - 
-                - 
-                - 
-                - 
+            justify-content 속성 : *주 축*기준으로 정렬
+                - flex-start: 주축의 시작점을 기준으로 정렬(default)
+                - flex-end: 주축의 종료점 기준으로 정렬
+                - center: 주축의 중앙 기준 정렬
+                - space-between: 첫번째 이템과 마지막 아이템을 시작점과 종료점에 붙이고 균등한
+                간격을 줘서 정렬
+                - space-around: 모든 아이템의 좌우측 간격이 동일하게 정렬                                            
         */
+        .flex-j-start-container{
+            display: flex;
+            background-color: gray;
+            justify-content: flex-start;
+        }
 
-        
-
+        .flex-j-end-container{
+            display: flex;
+            background-color: gray;
+            justify-content: flex-end;
+        }
+        .flex-j-center-container{
+            display: flex;
+            background-color: gray;
+            justify-content: center;
+        }
+        .flex-j-space-between-container{
+            display: flex;
+            background-color: gray;
+            justify-content: space-between;
+        }
+        .flex-j-space-around-container{
+            display: flex;
+            background-color: gray;
+            justify-content: space-around;
+        }
         /*
-            align-items 속성 : 
-                - 
-                - 
-                - 
-                - 
+            align-items 속성 : "교차축"기준으로 정렬
+                - sctretch: flex item이 flex container의 교차축을 모두 매꾸는 값을 가지게 만듦 
+                - flex-start: 교차축의 시작점으로 정렬
+                - flex-end: flex item을 교차 축의 종료점으로 정렬
+                - center: flex item을 교차 축의 중앙으로 정렬
         */
+        .flex-a-stretch-container{
+            background-color: gray;
+            display: flex;
+            height: 300px;
+            align-items: stretch;
+        }
+        .flex-a-start-container{
+            background-color: gray;
+            display: flex;
+            height: 300px;
+            align-items: start;
+        }
+        .flex-a-end-container{
+            background-color: gray;
+            display: flex;
+            height: 300px;
+            align-items: end;
+        }
+        .flex-a-end-container{
+            background-color: gray;
+            display: flex;
+            height: 300px;
+            align-items: end;
+        }
+        .flex-a-center-container{
+            background-color: gray;
+            display: flex;
+            height: 300px;
+            align-items: center;
+            gap: 10px;
+        } 
         
-
 
     </style>
 

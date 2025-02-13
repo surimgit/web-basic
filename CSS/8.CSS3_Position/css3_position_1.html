@@ -8,47 +8,99 @@
     <style>
 
         /*
-            position 속성 : 
-                - 
+            position 속성 : 요소에 위치를 지정할 때 사용하는 속성
+                - top, bottom, left, right 좌표 속성과 함께 사용
         */
 
         /*
-            static :
-                - 
-                - 
-                - 
-                - 
-                - 
+            static : 
+                - position 속성의 기본값
+                - 기본 요소의 배치 순서에 따라서 위에서 부터 아래, 왼쪽에서 오른쪽으로 배치됨
+                - 부모 요소 내의 자식 요소로 존재할 땐 부모 요소의 위치를 기반으로 배치
+                - default로 지정되어 있는 속성을 제거할 때 사용
+                - 좌표 속성 적용 불가
         */
-        
-
+        .static-parent{
+            width: 400px;
+            height: 400px;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        .static-item{
+            position: static;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255, 0, 0, 0.4);
+            top: 20px;
+            left: 20px;
+        }
 
         /*
-            relative :
-                - 
-                - 
+            relative : 
+                - 기존 위치를 기반으로 top, left, right, bottom 속성을 이용해서 상대적 위치를 지정함
+                - static과의 차이는 좌표 속성 사용 여부 차이만 존재함
         */
-        
+        .relative-item{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: rgba(255, 0, 0, 0.4);
+            top: 25px;
+            left: 25px;
+        }
 
 
         /*
             absolute :
-                - 
-                - 
-                - 
+                - 부모 또는 가장 가까이에 있는 상위요소(위치가 명시되어 있는)
+                를 기준으로 top, left, right, bottom 속성만큼 이동
+                - 모든 상위요소가 static으로 지정되어 있으면 body를 기준으로 배치하게 됨
+                - absoulte 선언시 block 요소의 너비가 컨텐츠의 너비를 따라 감
         */
-        
-
+        .absolute-item{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(0, 0, 255, 0.3);
+            top: 25px;
+            left: 25px;
+        }
+        .relative-parent{
+            width: 400px;
+            height: 400px;
+            background-color: rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
 
         /*
             fixed : 
-                - 
-                - 
-                - 
+                - 상위 요소와 관계없이 viewport 기준으로 top, left, right, bottom 속성 값만큼 이동
+                - 스크롤 되더라도 화면에 고정되어 있음
+                - fixed 선언시 block 요소의 너비가 컨텐츠의 너비를 따라감
         */
-        
+        .fixed-item{
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255, 255, 0, 0.6);
+            bottom: 100px;
+            right: 100px;
+        }
 
-
+        /*
+            sticky:
+                -본인의 위치에 존재하다가 화면상에서 벗어나면 지정된 위치에 고정됨
+        */
+        .container{
+            height: 2000px;
+            background-color: antiquewhite;
+        }
+        .sticky-box{
+            position: sticky;
+            width: 200px;
+            height: 200px;
+            background-color: brown;
+            top: 50px;
+        }
     </style>
 
 </head>
@@ -82,8 +134,9 @@
     </div>
     <br />
     <div class="relative-parent">
+        relative parent
         <div class="relative-item">
-            relative box
+            relative box<br/>relative box
             <div class="absolute-item">
                 absolute box
             </div>
@@ -92,7 +145,7 @@
 
     <hr />
 
-    <h3>Absolute position</h3>
+    <h3>Fixed position</h3>
 
     <div class="relative-parent">
         <div class="relative-item">
@@ -102,6 +155,11 @@
             </div>
         </div>
     </div>
-
+    
+    <div class="container">
+        <div class="sticky-box">
+            sticky box
+        </div>
+    </div>
 </body>
 </html>
